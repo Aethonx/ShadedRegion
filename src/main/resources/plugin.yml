@@ -1,0 +1,8 @@
+name: ShadedRegions
+version: 1.0
+main: io.shaded.ShadedRegionPlugin
+author: Aethonx
+loadbefore:
+  - "WorldGuard"
+depend:
+  - "WorldGuard"
