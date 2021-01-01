@@ -19,7 +19,7 @@ object PlayerRegionManager {
     }
 
     fun hidePlayer(player: Player) {
-        if (!player.hasPermission("shaded.regions.bypass")) return
+        if (player.hasPermission("shaded.regions.bypass")) return
 
         players.add(player.uniqueId)
         val packet = PacketPlayOutEntityDestroy(player.entityId)

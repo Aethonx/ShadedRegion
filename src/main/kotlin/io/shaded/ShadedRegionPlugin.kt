@@ -17,11 +17,13 @@ class ShadedRegionPlugin : JavaPlugin() {
             server.pluginManager.disablePlugin(this)
             return
         }
+
         dataFolder.mkdirs()
         instance = this
         configSerializer = Serializer()
 
-        RegionConfig.instance.load()
+        RegionConfig.load()
+        RegionConfig.save()
 
         Bukkit.getScheduler().runTaskTimer(
             this, PlayerLocationTask, 0, 20
@@ -35,16 +37,16 @@ class ShadedRegionPlugin : JavaPlugin() {
             PlayerRegionManager.showPlayer(Bukkit.getPlayer(uid))
         }
 
-        RegionConfig.instance.save()
-
         configSerializer = null
         instance = null
     }
 
     companion object {
+        @JvmStatic
         var instance: ShadedRegionPlugin? = null
             private set
 
+        @JvmStatic
         var configSerializer: Serializer? = null
             private set
     }

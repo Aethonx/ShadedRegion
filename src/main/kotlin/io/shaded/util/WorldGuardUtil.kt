@@ -19,7 +19,7 @@ object WorldGuardUtil {
 
         if (regions != null) {
             for (region in regions) {
-                if (RegionConfig.instance.regions.contains(region.id.toLowerCase())) {
+                if (RegionConfig.regions.contains(region.id.toLowerCase())) {
                     return true
                 }
             }
